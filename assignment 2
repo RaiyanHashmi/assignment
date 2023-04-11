@@ -1,0 +1,71 @@
+//Q1
+function print (def) {
+    return function (ghi) { 
+        console.log(def + ghi)
+    }
+}
+let innerFunction = print(8);
+let innerFunction2 = print(8);
+innerFunction(8)
+innerFunction2(5)
+     // Q2
+     let myArray = [1, 2, 3, 4, 5];
+     function search(array, value){
+if (array.lenght === 0) {
+    return false;
+}     
+else if (array[0] === value){
+    return true;}
+
+else {
+    return search(array.slice(1), value);
+}
+     }
+//console.log(search(myArray,3));
+console.log(search(myArray,5))
+// Q3
+addParagraph('This is a new paragraph!');
+function addParagraph(text) {
+     newParagraph = document.createElement('p');
+    newParagraph.textContent = text;
+    document.body.appendChild(newParagraph);
+  }
+  addParagraph('This is a new paragraph!');
+
+  // Q4
+  addListItem('New item');
+  function addListItem(text) {
+    const newListItem = document.createElement('li');
+    newListItem.textContent = text;
+    const unorderedList = document.querySelector('ul');
+    unorderedList.appendChild(newListItem);
+  }
+  addListItem('New item');
+
+  // Q7
+  function getObjectFromLocalStorage(key) {
+    const objectString = localStorage.getItem(key);
+    const object = JSON.parse(objectString);
+    return object;
+  }
+  const myObject = getObjectFromLocalStorage('myKey');
+//   Q8
+function saveObjectToLocalStorage(object) {
+    for (let key in object) {
+      localStorage.setItem(key, JSON.stringify(object[key]));
+    }
+    const newObject = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      const valueString = localStorage.getItem(key);
+      const value = JSON.parse(valueString);
+      newObject[key] = value;
+    }
+    return newObject;
+  }
+  const myObject = { name: 'John', age: 30, city: 'New York' };
+  const newObject = saveObjectToLocalStorage(myObject);
+  console.log(newObject);
+    
+  
+
