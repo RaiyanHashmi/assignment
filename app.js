@@ -1,4 +1,4 @@
- // fetching the JSON data
+ 
 const url = "./assets/movies.json";
 
 let movies = [];
@@ -9,7 +9,7 @@ fetch(url)
     movies = data;
   });
 
-// function to filter movies by genre
+
 function filterByGenre(movies, genre) {
   if (!genre) {
     return movies;
@@ -17,7 +17,7 @@ function filterByGenre(movies, genre) {
   return movies.filter((movie) => movie.genre === genre);
 }
 
-// function to filter movies by rating
+
 function filterByRating(movies, rating) {
   if (!rating) {
     return movies;
@@ -25,7 +25,7 @@ function filterByRating(movies, rating) {
   return movies.filter((movie) => movie.rating >= rating);
 }
 
-// function to filter movies by release year
+
 function filterByYear(movies, year) {
   if (!year) {
     return movies;
@@ -33,18 +33,18 @@ function filterByYear(movies, year) {
   return movies.filter((movie) => movie.year === year);
 }
 
-// function to recommend movies based on user preferences
+
 function recommendMovies() {
   const genre = document.getElementById("genre").value;
   const rating = parseFloat(document.getElementById("rating").value);
   const year = parseInt(document.getElementById("year").value);
 
-  // filter movies based on user preferences
+  
   let filteredMovies = filterByGenre(movies, genre);
   filteredMovies = filterByRating(filteredMovies, rating);
   filteredMovies = filterByYear(filteredMovies, year);
 
-  // display filtered movies on the user interface
+ 
   const resultDiv = document.getElementById("result");
   resultDiv.innerHTML = "";
   if (filteredMovies.length === 0) {
